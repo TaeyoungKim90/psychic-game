@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Psychic Game!</title>
+</head>
+
+<body>
+
+  <header>
+    <h1>The Psychic Game!</h1>
+    <h2>Guess the letter I'm thinking of!</h2>
+  </header>
+
+  <div>
+    <p id="user-letter-text"></p>
+    <p id="pc-letter-text"></p>
+    <p id="wins-text"></p>
+    <p id="losses-text"></p>
+    <p id="attempts-text"></p>
+  </div>
+
+  <script type="text/javascript">
+    var pcChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "u", "v", "w","x","y","z"];
+    
+    var wins = 0;
+    var losses = 0;
+    var attempts = 0;
+
+    var userThinksText = document.getElementById("user-letter-text");
+    var pcChoseText = document.getElementById("pc-letter-text");
+    var winsText = document.getElementById("wins-text");
+    var lossesText = document.getElementById("losses-text");
+    var attemptsText = document.getElementById("attempts-text");
+
+   
+    document.onkeyup = function(event) {
+      var userLetter = String.fromCharCode(event.keyCode).toLowerCase();
+      var pcLetter = pcChoices[Math.floor(Math.random() * pcChoices.length)];
+            
+      if ((userLetter === "a") || (userLetter === "b") || (userLetter === "c") || (userLetter === "d") || (userLetter === "e") || (userLetter === "f") ||
+          (userLetter === "g") || (userLetter === "h") || (userLetter === "i") || (userLetter === "j") || (userLetter === "k") || (userLetter === "l") ||
+          (userLetter === "m") || (userLetter === "n") || (userLetter === "o") || (userLetter === "p") || (userLetter === "q") || (userLetter === "r") ||
+          (userLetter === "s") || (userLetter === "t") || (userLetter === "u") || (userLetter === "v") || (userLetter === "w") || (userLetter === "x") ||
+          (userLetter === "y") || (userLetter === "z")) {
+
+        if (userLetter === pcLetter) {
+          wins++;
+        } else if (userLetter != pcLetter) {
+          loses++;
+        }
+
+        userThinksText.textContent = "You chose: " + userLetter;
+        pcChoseText.textContent = "The computer chose: " + pcLetter;
+        winsText.textContent = "Wins: " + wins;
+        lossesText.textContent = "Losses: " + losses;
+        attemptsText.textContent = "Attempts: " + attempts;
+      }
+    };
+  </script>
+
+</body>
+
+</html>
+
+
+
+
+<!-- // // ((userLetter === "a" && pcLetter === "a") || (userLetter === "b" && pcLetter === "a") ||
+//     (userLetter === "c" && pcLetter === "c") || (userLetter === "d" && pcLetter === "d") ||
+//     (userLetter === "e" && pcLetter === "e") || (userLetter === "f" && pcLetter === "f") ||
+//     (userLetter === "g" && pcLetter === "g") || (userLetter === "h" && pcLetter === "h") ||
+//     (userLetter === "i" && pcLetter === "i") || (userLetter === "j" && pcLetter === "j") ||
+//     (userLetter === "k" && pcLetter === "k") || (userLetter === "l" && pcLetter === "l") ||
+//     (userLetter === "m" && pcLetter === "m") || (userLetter === "n" && pcLetter === "n") ||
+//     (userLetter === "o" && pcLetter === "o") || (userLetter === "p" && pcLetter === "p") ||
+//     (userLetter === "q" && pcLetter === "q") || (userLetter === "r" && pcLetter === "r") ||
+//     (userLetter === "s" && pcLetter === "s") || (userLetter === "t" && pcLetter === "t") ||
+//     (userLetter === "u" && pcLetter === "u") || (userLetter === "v" && pcLetter === "v") ||
+//     (userLetter === "w" && pcLetter === "w") || (userLetter === "x" && pcLetter === "x") ||
+//     (userLetter === "y" && pcLetter === "y") || (userLetter === "z" && pcLetter === "z")) {
+//   wins++;
+// } else if (userLetter != pcLetter) {
+//   loses++;
+// }  -->
+
